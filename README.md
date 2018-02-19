@@ -32,7 +32,7 @@ Usage example: /api/topics/1?extras[]=articles
 
 # Possible Improvements
 
-1. I didn't use any interfaces for layering and thus the system is tightly coupled.
+1. I didn't use any interfaces for layering thus the system is tightly coupled.
 Adding interfaces to DAO, Service and Facade layers would be highly recommendable.
 SOLID principles would be easier to achieve with usage of interfaces.
 
@@ -43,16 +43,16 @@ was to be expanded sometimes in the future.
 
 3. Use some automatic serializer (avoid reinventing the wheel) which supports complex
 serialization combinations. Although custom written serializers do offer a maximum control
-over serialization, using existing libraries would be advisable if speed of coding is
+over serialization, using existing libraries would be advisable if the speed of coding is
 of importance.
 
-4. Using funcional tests to test the whole service. 
+4. Using funcional tests to test the whole service. Also cover whole code with unit tests.
 
 5. Using PDO instead of mysqli (for migration purposes). Also using stored procedures in database and/or
 prepared statements (to avoid SQL injection). Using pool of database connections instead of  initializing new 
 connection for every request would drastically improve performance.
 
-6. As the system is fairly simplisic it would be possible (for performance improvements) to 
+6. As the system is fairly simplisic it would be possible (for minor performance improvements) to 
 convert all classes to static ones (because most of them are stateless) which would 
 in essence convert the project from object oriented to functional. What I found wierd was that
 symfony creates new objects (controllers->facades->services->daos) for every new request, even 
@@ -60,6 +60,6 @@ when I explicitly put "shared: true" in services.yaml (which is the default valu
 that PHP's built in server is to blame, but not sure.
 
 7. Convert all static classes (such as ErrorService and serializers) to normal classes to
-preserve the notion that globally available functions/methods are cancer for larger projects
+adhere to the notion that globally available functions/methods are cancer for larger projects
 in terms of extensibility which cannot be achieved easily if functions are static and used all over the place.
 
