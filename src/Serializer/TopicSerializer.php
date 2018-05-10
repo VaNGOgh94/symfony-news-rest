@@ -46,7 +46,7 @@ class TopicSerializer
         return array(
                     "count"=>count($topicArray),
                     "items"=>TopicSerializer::serializeTopicArrayMandatory($topicArray)
-                
+
         );
     }
 

@@ -40,6 +40,18 @@ class TopicController extends Controller
 
     /**
      * @Route("")
+     * @Method("OPTIONS")
+     * @param Request $request
+     * @return Response
+     */
+    public function options(Request $request)
+    {
+        return new Response(null, 200);
+    }
+
+
+    /**
+     * @Route("")
      * @Method("POST")
      * @param Request $request
      * @return Response

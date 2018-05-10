@@ -20,7 +20,7 @@ use PHPUnit\Framework\MockObject\RuntimeException;
 class DatabaseInterface{
     const server = 'localhost';
     const username = 'root';
-    const password = '';
+    const password = 'tvojastara';
     const db = 'civcija_task_db';
     const charset= 'utf8';
 

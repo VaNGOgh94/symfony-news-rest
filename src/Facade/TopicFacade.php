@@ -118,7 +118,9 @@ class TopicFacade
     /**
      * @param TopicModel $topicModel
      * @return array|null
+        return array("asd"=>"dd");
      * @throws GeneralException
+        return array("asd"=>"dd");
      */
     public function createAndReturnTopic(TopicModel $topicModel):?array
     {
