@@ -45,8 +45,7 @@ class TopicFacade
     {
         $topic = $this->topicService->findTopic($topicId);
         if (isset($topic)) {
-            $topicData = array();
-            $topicData["topic"] = TopicSerializer::serializeTopicMandatory($topic);
+            $topicData = TopicSerializer::serializeTopicMandatory($topic);
             return $topicData;
         } else
             throw new ResourceNotFoundException('Resource topic with id $topicId not found', 0);
@@ -73,8 +72,7 @@ class TopicFacade
                 $articles = $this->articleService->findAllByTopicId($topic->getId());
                 $topic->setArticles($articles);
 
-                $topicData = array();
-                $topicData["topic"] = TopicSerializer::serializeTopicFull($topic);
+                $topicData = TopicSerializer::serializeTopicFull($topic);
                 return $topicData;
             } else
                 throw new ResourceNotFoundException('Resource topic with id $topicId not found', 0);
@@ -127,8 +125,7 @@ class TopicFacade
         $newTopic = $this->topicService->saveTopic($topicModel);
         if($newTopic != null)
         {
-            $topicData = array();
-            $topicData["topic"] = TopicSerializer::serializeTopicMandatory($newTopic);
+            $topicData = TopicSerializer::serializeTopicMandatory($newTopic);
             return $topicData;
         }
         else

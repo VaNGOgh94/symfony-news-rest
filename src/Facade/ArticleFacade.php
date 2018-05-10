@@ -33,8 +33,7 @@ class ArticleFacade
         $newArticle = $this->articleService->saveArticle($articleModel);
         if($newArticle != null)
         {
-            $articleData = array();
-            $articleData["article"] = ArticleSerializer::serializeArticleFull($newArticle);
+            $articleData =  ArticleSerializer::serializeArticleFull($newArticle);
             return $articleData;
         }
         else
@@ -52,8 +51,7 @@ class ArticleFacade
     {
         $article = $this->articleService->findArticle($articleId);
         if (isset($article)) {
-            $topicData = array();
-            $topicData["article"] = ArticleSerializer::serializeArticleFull($article);
+            $topicData = ArticleSerializer::serializeArticleFull($article);
             return $topicData;
         } else
             throw new ResourceNotFoundException('Resource article with id $articleId not found', 0);

@@ -44,11 +44,9 @@ class TopicSerializer
     public static function serializeTopicListMandatory(?array $topicArray)
     {
         return array(
-            "topics"=>
-                array(
                     "count"=>count($topicArray),
                     "items"=>TopicSerializer::serializeTopicArrayMandatory($topicArray)
-                )
+                
         );
     }
 
