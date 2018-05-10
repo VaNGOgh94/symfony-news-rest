@@ -39,6 +39,8 @@ if($_SERVER['REQUEST_METHOD']==='OPTIONS')
     $response = new \Symfony\Component\HttpFoundation\Response('',200);
 else
     $response = $kernel->handle($request);
+
+$response->headers->set('Access-Control-Allow-Headers', '*');
 $response->headers->set('Access-Control-Allow-Origin', '*');
 $response->headers->set('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
 $response->send();
