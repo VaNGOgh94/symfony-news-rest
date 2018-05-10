@@ -82,7 +82,7 @@ class DatabaseInterface{
     function insertQuery($query) {
         mysqli_autocommit($this->conn, false);
         $rezultat = mysqli_query($this->conn, $query);
-        var_dump($rezultat);
+        //var_dump($rezultat);
         if ($rezultat === false) {
             mysqli_rollback($this->conn);
 //            echo "Insert err: ".mysqli_errno($this->conn). "  ".mysqli_error($this->conn)."<br>QUERY: $query<br>";
