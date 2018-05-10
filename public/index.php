@@ -32,9 +32,13 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts(explode(',', $trustedHosts));
 }
 
+
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
-$response = $kernel->handle($request);
+if($_SERVER['REQUEST_METHOD']==='OPTIONS')
+    $response = new \Symfony\Component\HttpFoundation\Response('',200);
+else
+    $response = $kernel->handle($request);
 $response->headers->set('Access-Control-Allow-Origin', '*');
 $response->headers->set('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
 $response->send();
